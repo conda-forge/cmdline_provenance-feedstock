@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 7abbffd72676c8bed10713790fb46cef44538d709085d6e1e7007d089f4b030d
+  sha256: a71497e673518c527e6e97a5a845a7339b18d405e4698e979428cc2066e3c5e6
 
 build:
   number: 0
@@ -16,15 +16,13 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
   run:
-    - python
-    - gitpython
+    - python >=3.6
+    - ipynbname
 
 test:
-  requires:
-    - git
   imports:
     - cmdline_provenance
 
