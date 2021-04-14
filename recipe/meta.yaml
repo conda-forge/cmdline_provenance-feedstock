@@ -23,8 +23,6 @@ requirements:
     - ipynbname
 
 test:
-  requires:
-    - git
   imports:
     - cmdline_provenance
 
