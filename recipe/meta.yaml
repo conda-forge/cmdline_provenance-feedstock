@@ -2,21 +2,22 @@
 {% set version = "1.1.0" %}
 
 package:
-  name: "{{ name|lower }}"
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 3da89243cd315ed2d7929887ebcb82ee00c3a288e00b80e227b8ec51174ed868
 
 build:
   number: 1
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - python {{ python_min }}
+    - setuptools
     - pip
   run:
     - python >={{ python_min }}
